@@ -1,6 +1,6 @@
 # https://cemyurtbasi.netlify.app/
 
-That's the code of my website (cemyurtbasi.com). My first production-use of the Gatsby-React tandem.
+That's the code of my website . My first production-use of the Gatsby-React tandem.
 
 ## Setup
 
