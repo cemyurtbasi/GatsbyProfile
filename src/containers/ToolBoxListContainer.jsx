@@ -26,21 +26,43 @@ class ToolBoxListContainer extends React.Component {
             <b>And I love it!</b>`
         },
         {
+          id: 7,
+          label: "React",
+          description: `A JavaScript <a href="https://reactjs.org/" target="_blank">library</a> for building user interfaces. 
+            React makes it painless to create interactive UIs. Build encapsulated components 
+            that manage their own state and then compose them to make complex UIs.`,
+          comment: `I've been in love since using it for the first time.`
+        },
+        {
+          id: 10,
+          label: "Next Js",
+          description: `A The React Framework for Production
+            <a href="https://nextjs.org/" target="_blank">Next.js</a>.`
+        },
+        {
+          id: 11,
+          label: "Node Js",
+          description: `As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications
+            <a href="https://nodejs.org/" target="_blank">Node.js</a>.`
+        },
+        {
+          id: 16,
+          label: "Postgre Sql",
+          description: `An open source database with lots of power. Easy to use and maintain. This monster can safely store and scale the most complicated data workloads.`
+        },
+        {
+          id: 15,
+          label: "PERN Stack",
+          description: `The PERN stack consists of PostgreSQL, Express, React, and Node. js.`,
+          comment: `I built exactly one <a href="https://spotify.cemyurtbasi.com/" target="_blank">site</a>.`
+        },
+        {
           id: 2,
           label: "ES2015",
           description: `It's a pseudonym for the latest version of the 
             <a href="https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015" target="_blank">
             ECMAScript</a> aka JavaScript.`,
           comment: `ES6 makes my coding easier.`
-        },
-        {
-          id: 18,
-          label: "Babel",
-          description: `A <a href="https://babeljs.io/" target="_blank">transpiler</a> for JavaScript 
-            best known for its ability to turn ES2015 into code that runs in browsers 
-            which does not support it directly. It lets us use next generation 
-            JavaScript, today.`,
-          comment: `That's a <b>must-have</b> tool.`
         },
         {
           id: 3,
@@ -85,41 +107,12 @@ class ToolBoxListContainer extends React.Component {
           comment: `That's my <a href="https://github.com/cemyurtbasi" target="_blank">Github</a>`
         },
         {
-          id: 7,
-          label: "React",
-          description: `A JavaScript <a href="https://reactjs.org/" target="_blank">library</a> for building user interfaces. 
-            React makes it painless to create interactive UIs. Build encapsulated components 
-            that manage their own state and then compose them to make complex UIs.`,
-          comment: `I've been in love since using it for the first time.`
-        },
-        {
           id: 9,
           label: "Gatsby",
           description: `A static PWA (Progressive Web App) 
             <a href="https://www.gatsbyjs.org/" target="_blank">generator</a>. Gatsby lets 
             you build blazing-fast sites with your data, whatever the source.`,
           comment: `The website you are looking at now is built with Gatsby.`
-        },
-        {
-          id: 20,
-          label: "GraphQL",
-          description: `It's a query language for APIs. <a href="http://graphql.org/" target="_blank">GraphQL</a> 
-          gives clients the power to ask for exactly what they need and nothing more.`,
-          comment: `The <a href="https://www.graph.cool/" target="_blank">Graphcool</a> framework and its
-          <b>Cloud</b> service manages the GraphQL backend for my <a href="https://github.com/cemyurtbasi" target="_blank">app.</a>`
-        },
-        {
-          id: 10,
-          label: "Angular 2+",
-          description: `A TypeScript-based open-source front-end web application 
-            <a href="https://angular.io/" target="_blank">platform</a>.`
-        },
-        {
-          id: 11,
-          label: "ArangoDB / AQL",
-          description: `A multi-model mostly-memory <a href="https://www.arangodb.com/" target="_blank">database</a>
-            with a flexible data model for documents and graphs. It is designed as 
-            a “general purpose database”, offering all the features you typically need for modern web applications.`
         },
         {
           id: 12,
@@ -138,29 +131,19 @@ class ToolBoxListContainer extends React.Component {
           label: "jQuery",
           description: `A cross-platform JavaScript <a href="https://jquery.com/" target="_blank">library</a> designed to simplify 
             the client-side scripting of HTML.`,
-          comment: `I used it much and often ... in the past.`
-        },
-        {
-          id: 15,
-          label: "Wordpress",
-          description: `The largest self-hosted <a href="https://wordpress.org/" target="_blank">blogging tool</a>
-            in the world, used on millions of sites.`,
-          comment: `I've built some websites using it. Like  
-            <a href="http://polishlanguage.dlachetnych.pl/" target="_blank">this</a> one or 
-            <a href="http://lab.gregloby.com/" target="_blank">that</a> one.`
-        },
-        {
-          id: 16,
-          label: "Drupal",
-          description: `An open source content-management framework written in PHP.`,
-          comment: `I built exactly one <a href="http://babelvillage.com/" target="_blank">site</a> with Drupal 7.`
+          comment: `I used it much and often`
         },
         {
           id: 17,
-          label: "PHP",
-          description: `A server-side scripting <a href="http://php.net/" target="_blank">language</a> designed primarily 
-            for web development but also used as a general-purpose programming language.`,
-          comment: `Currently, my only contact with PHP is when theming WP.`
+          label: ".Net",
+          description: `NET Framework is a software development framework for building and running applications on Windows`,
+          comment: `I can stil produce quilty code but for now, im working on Reach and Next.js.`
+        },
+        {
+          id: 18,
+          label: ".Net core",
+          description: `ASP.NET Core is the open-source version of ASP.NET, that runs on macOS, Linux, and Windows.`,
+          comment: `I can stil produce quilty code but for now, im working on Reach and Next.js.`
         }
       ],
       activatedItem: null,
