@@ -89,7 +89,6 @@
   width: 100%;
   height: 100%;
   top: 0;
-  left: -100%;
   transition: all 0.4s ease-in-out;
   display: flex;
   align-items: center;
@@ -98,9 +97,34 @@
 
 .playGroundList-group-list-item-info span {
   color: #fff;
-  font-size: 30px;
   font-weight: 500;
   line-height: 1.17;
   text-align: center;
   padding: 8px;
+}
+
+@media screen and (min-width: $media-width-S) {
+  .playGroundList-group-list-item {
+    transform: scale(1.1);
+    margin-bottom: 30px;
+  }
+  .playGroundList-group-list-item .playGroundList-group-list-item-info {
+    left: 0;
+  }
+  .playGroundList-group-list-item-info span {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: $media-width-M) {
+  .playGroundList-group-list-item {
+    transform: scale(1);
+    margin-bottom: 20px;
+  }
+  .playGroundList-group-list-item .playGroundList-group-list-item-info {
+    left: -100%;
+  }
+  .playGroundList-group-list-item-info span {
+    font-size: 26px;
+  }
 }
