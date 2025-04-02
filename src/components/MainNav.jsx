@@ -1,101 +1,64 @@
-import React from 'react';
+import React, { useState, memo } from 'react';
 import Link from 'gatsby-link';
 import { FaMapMarker, FaEnvelopeO, FaPaperPlaneO, FaWrench, FaChevronDown, FaChevronUp } from 'react-icons/lib/fa';
-import { TiCodeOutline } from 'react-icons/lib/ti';
 
-const ListLink = (props) => (
-  <li className="c-main-nav__elem" >
+const ListLink = memo(({ to, children, closeMenu }) => (
+  <li className="c-main-nav__elem">
     <Link 
-      to={props.to} 
+      to={to} 
       className="c-main-nav__link" 
       activeClassName="c-main-nav__link--is-active" 
       exact={true}
-      onClick={props.closeMenu}
+      onClick={closeMenu}
     >
-      {props.children}
+      {children}
     </Link>
   </li>
-);  
+));
 
-class MainNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-    this.state = {
-      links: [
-        { to: '/', text: 'Home', icon: FaMapMarker },
-        { to: '/toolbox/', text: 'Toolbox', icon: FaWrench },
-        { to: '/playground/', text: 'Playground', icon: FaPaperPlaneO },
-        { to: '/contact/', text: 'Contact', icon: FaEnvelopeO }
-      ],
-      mainNavModifierClassName: '',
-      mobileDetailsNav: null
-    }
-  }
+const MainNav = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  closeMenu() {
-    console.log('closeMenu()');
-    if (this.state.mobileDetailsNav) {
-      this.setState(() => ({
-        mainNavModifierClassName: '',
-        mobileDetailsNav: null
-      }))
-    }
-  }
+  const links = [
+    { to: '/', text: 'Home', icon: FaMapMarker },
+    { to: '/toolbox/', text: 'Toolbox', icon: FaWrench },
+    { to: '/playground/', text: 'Playground', icon: FaPaperPlaneO },
+    { to: '/contact/', text: 'Contact', icon: FaEnvelopeO }
+  ];
 
-  toggleMenu() {
-    let mobileDetailsNav = null;
-    let mainNavModifierClassName = '';
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-    if (!this.state.mobileDetailsNav) {
-      mobileDetailsNav = (
+  return (
+    <div>
+      <ul className={`c-main-nav ${isMenuOpen ? 'c-main-nav--is-hidden' : ''}`}>
+        {links.map((link, i) => (
+          <ListLink to={link.to} key={i} closeMenu={() => setIsMenuOpen(false)}>
+            <link.icon />
+            <span className="c-main-nav__text">{link.text}</span>
+          </ListLink>
+        ))}
+        <li 
+          className="c-main-nav__elem c-main-nav__elem--close-link" 
+          onClick={toggleMenu}
+        >
+          <a href="#" className="c-main-nav__link">
+            {isMenuOpen ? <FaChevronUp /> : <FaChevronDown />}
+            <span className="c-main-nav__text">Close</span>
+          </a>
+        </li>    
+      </ul> 
+      {isMenuOpen && (
         <div className="c-main-nav c-main-nav--is-open">
-        { 
-          this.state.links.map((link, i) => (
-            <ListLink closeMenu={this.closeMenu} to={link.to} key={i} >
+          {links.map((link, i) => (
+            <ListLink to={link.to} key={i} closeMenu={() => setIsMenuOpen(false)}>
               <link.icon />
               <span className="c-main-nav__text">{link.text}</span>
-            </ListLink>  
-          )) 
-        }
+            </ListLink>
+          ))}
         </div>
-      );
-      mainNavModifierClassName = 'c-main-nav--is-hidden'
-    } 
-
-    this.setState(() => ({
-      mainNavModifierClassName: mainNavModifierClassName,
-      mobileDetailsNav: mobileDetailsNav
-    }));
-  }
-  
-  render() {
-    return (
-      <div>
-        <ul className={ `c-main-nav ${this.state.mainNavModifierClassName}` }>
-          { 
-            this.state.links.map((link, i) => (
-              <ListLink to={link.to} key={i} testLink={this.testLink}>
-                <link.icon />
-                <span className="c-main-nav__text">{link.text}</span>
-              </ListLink>  
-            )) 
-          }
-          <li 
-            className="c-main-nav__elem c-main-nav__elem--close-link" 
-            onClick={this.toggleMenu}
-          >
-            <a href="#" className="c-main-nav__link">
-              { (this.state.mainNavModifierClassName) ? <FaChevronUp /> : <FaChevronDown />  }
-              <span className="c-main-nav__text">Close</span>
-            </a>
-          </li>    
-        </ul> 
-        { this.state.mobileDetailsNav }
-      </div>
-    )
-  }
+      )}
+    </div>
+  );
 };
 
-export default MainNav;
+export default memo(MainNav);

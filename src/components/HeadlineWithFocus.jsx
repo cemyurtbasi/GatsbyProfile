@@ -1,34 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect, memo } from 'react';
 
-class HeadlineWithFocus extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      animationClassName: ''
-    }
-  }
+const HeadlineWithFocus = memo(({ children, modifierClassNames }) => {
+  const [animationClassName, setAnimationClassName] = useState('');
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState((prevState) => ({
-        animationClassName: 'c-headline-focus--animation'
-      }));
-    },5);  
-  }
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAnimationClassName('c-headline-focus--animation');
+    }, 5);
+    return () => clearTimeout(timeout);
+  }, []);
 
-  render() { 
-    return (
-        <h1 
-          className={ `c-headline-focus
-            ${this.props.modifierClassNames} 
-            ${this.state.animationClassName}` } 
-          ref="myImgContainer"
-        >            
-          { this.props.children }
-        </h1>
-    )
-  }
-}
+  return (
+    <h1 
+      className={`c-headline-focus ${modifierClassNames} ${animationClassName}`}
+    >
+      {children}
+    </h1>
+  );
+});
 
-export default HeadlineWithFocus; 
+export default HeadlineWithFocus;
 
