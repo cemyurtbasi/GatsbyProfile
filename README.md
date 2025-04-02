@@ -1,4 +1,5 @@
 # https://cemyurtbasi.netlify.app/
+# https://www.cemyurtbasi.com/
 
 That's the code of my website . My first production-use of the Gatsby-React tandem.
 
